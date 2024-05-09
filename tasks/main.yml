@@ -1,5 +1,12 @@
 ---
 - block:
+    - name: Convert timers dictionary to list
+      set_fact:
+        timers_list: "{{ timers | dict2items }}"
+
+    - name: Debug timers list
+      debug:
+        msg: {{ timers_list }}
 
     - name: Failing when timer_command is undefined
       fail:
